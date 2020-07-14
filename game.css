@@ -47,7 +47,6 @@ button:hover{
 }
 .buttons{
 	display: flex;
-	flex-direction: row;
 	justify-content: space-around;
 }
 .buttons div{
@@ -165,4 +164,16 @@ transform: translateY(0px);
 	.main-game{
 		padding-top: 100px;
 	}
+}
+@media screen and (max-width: 400px){
+	.buttons{
+		flex-direction: column;
+	}
+	.buttons div{
+		width: 100%;
+		margin: 10px 0;
+	}
+	.buttons div:nth-child(1),.buttons div:nth-child(3){
+          justify-content:space-around;
+        }
 }
