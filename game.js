@@ -24,6 +24,7 @@ var sounds = {
 }
 $playerscore=0;
 $computerscore=0;
+$gamover = 0;
 //starting the game 
 $("#start").click(function(){
   $(".main-game .start").addClass("click-fade");
@@ -62,7 +63,6 @@ $(".images img:nth-child(1)").attr("src",arr[1]);
   winnercheck(1,$y);
   $(".buttons button").removeClass("disable");
 }
-//end of user choice button paper
 
 //start of user choice button scissors
 $(".scissors").click(function(){
@@ -79,12 +79,11 @@ $(".images img:nth-child(1)").attr("src",arr[2]);
   winnercheck(2,$z);
   $(".buttons button").removeClass("disable");
 }
-//end of user choice button scissors
-
 // function  for checking the winner
 //passing the indexes of array arr in winnercheck function according to user and computer random choice
 function winnercheck($a,$b){
 // taking the indexes of array of image and consider them as conditions.
+$gamover++;
 if($a==$b)
 {//if both indexes are same match ties
 $(".display-winner h2").text("Match Tie");
@@ -140,6 +139,15 @@ else
     }
    }
 
+}
+if($gamover == 5){
+      if ($computerscore > $playerscore){
+    $(".pop-box .win-status:nth-child(1)").addClass("out")
+    }else{
+     $(".pop-box .win-status:nth-child(2)").addClass("out")
+    }
+    $(".game-finish-popup").addClass("pop");
+    $(".pop-box").addClass("down");
 }	
 }
 

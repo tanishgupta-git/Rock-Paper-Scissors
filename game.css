@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Rubik:wght@500&display=swap');
-*{box-sizing: border-box;}
+*{box-sizing: border-box;font-family: sans-serif;}
 body,html{
 	margin: 0;
 	padding: 0;
@@ -13,7 +13,6 @@ body,html{
 }
 .scoreboard{
 	display: flex;
-	flex-direction:row;
 }
 .score{
 color:white;
@@ -26,6 +25,13 @@ width:50%;
 h2{
 	font-weight: 500;
 	font-size: 2.1em;
+	text-align: center;
+}
+h3{  position: absolute;
+	bottom: 10px;
+	color: #fff;
+	font-family:sans-serif;
+	margin: 0;
 }
 .main-game{
 	padding-top:60px;
@@ -42,16 +48,15 @@ background:#6b6b47;
 cursor:pointer;
 border-radius: 4px;
 }
-button:hover{
+button:hover, .pop-box a:hover{
 	opacity: 0.8;
 }
-.buttons{
+.buttons,#dev-info{
 	display: flex;
 	justify-content: space-around;
 }
 .buttons div{
 	display:flex;
-	flex-direction: row;
 	justify-content:center;
 	width:33%;
 }
@@ -69,9 +74,6 @@ margin-top: 130px;
 	display:flex;
 	flex-direction:row;
 	justify-content:space-around;
-}
-h2{
-	text-align: center;
 }
 .images img{
 	width: 150px;
@@ -96,11 +98,7 @@ h2{
 	animation-name:fade;
 	animation-duration:0.7s;
 }
-
-.out{
-	display:none;
-}
-.display-winner{
+.out , .display-winner{
 	display: none;
 }
 .click-in{
@@ -109,13 +107,71 @@ h2{
 	animation-duration: 0.5s;
 	animation-direction:reverse; 
 }
-@keyframes fade{
+.game-finish-popup{
+	background: rgba(0,0,0,0.87);
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+.game-finish-popup.pop{
+	display:flex;
+}
+.pop-box{
+	width: 80%;
+	max-width:400px;
+	border-radius: 10px;
+	min-height:450px;
+	background:linear-gradient(to bottom,#604020,#392613);
+    transform:translateY(-400%);
+}
+.pop-box.down{
+    animation: down 1.2s ease-in-out forwards;
+}
+@keyframes down{
 	0%{
-		opacity: 1;
+		transform:translateY(-400%);
+	}
+	70%{
+		transform:translateY(10%);
 	}
 	100%{
-		opacity: 0;
+		transform: translateY(0%);
 	}
+}
+.win-status h1{
+	font-size: 3rem;
+	font-weight: 900;
+	color: #1a0d00;
+	text-align: center;
+}
+.win-status p{
+	font-size: 1.9rem;
+	text-align: center;
+}
+.pop-box a{
+	position: absolute;
+	top:70%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-decoration: none;
+	color: #fff;
+	font-size: 2rem;
+	padding:5px 30px;
+	border: 2px solid white;
+	border-radius:8px;
+	background: #4d1a00;
+	transition: 0.2s;
+}
+@keyframes fade{
+0%{opacity: 1;}
+100%{opacity: 0;}
 }
 @keyframes move{
 16%{
