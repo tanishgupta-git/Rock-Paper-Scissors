@@ -148,6 +148,7 @@ if($gamover == 5){
     }
     $(".game-finish-popup").addClass("pop");
     $(".pop-box").addClass("down");
+        (function(){$(".display-winner").removeClass("click-in");})(); 
 }	
 }
 
