@@ -142,9 +142,14 @@ else
 }
 if($gamover == 5){
       if ($computerscore > $playerscore){
-    $(".pop-box .win-status:nth-child(1)").addClass("out")
+    $(".pop-box .win-status:nth-child(1)").addClass("out");
+    $(".pop-box .win-status:nth-child(3)").addClass("out")
+    }else if($computerscore < $playerscore){
+     $(".pop-box .win-status:nth-child(2)").addClass("out");
+     $(".pop-box .win-status:nth-child(3)").addClass("out");
     }else{
-     $(".pop-box .win-status:nth-child(2)").addClass("out")
+    $(".pop-box .win-status:nth-child(1)").addClass("out");
+    $(".pop-box .win-status:nth-child(2)").addClass("out");
     }
     $(".game-finish-popup").addClass("pop");
     $(".pop-box").addClass("down");
